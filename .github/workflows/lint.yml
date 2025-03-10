@@ -4,15 +4,17 @@ on:
   release:
     types: [released]
   pull_request:
-    branches: main
+    branches:
+      - main
 
 jobs:
   eslint:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js
+    - name: Run ESLint
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-    - run: npx eslint . --ext .ts,.js,.tsx
+        working-dir: apps/
+    - run: npx eslint ./apps/ --config=./apps/backend/eslint.config.js
