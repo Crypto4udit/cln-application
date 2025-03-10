@@ -17,11 +17,11 @@ export default [
     ...tseslint.configs.recommended,
     // https://www.npmjs.com/package/eslint-plugin-node-dependencies
     ...nodeDependenciesPlugin.configs["flat/recommended"],
-    // https://github.com/jsx-eslint/eslint-plugin-react
-    ...reactPlugin.configs.flat.recommended,
     {
-        plugins: {globals },
+        plugins: {globals, reactPlugin  },
         ...globals.recommended,
+        // https://github.com/jsx-eslint/eslint-plugin-react
+        ...reactPlugin.recommended,
         rules: {
             "no-unused-vars": "warn",
             "no-undef": "error",
