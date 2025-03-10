@@ -15,5 +15,5 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-    - run: npm install --omit=dev
+    - run: npm init @eslint/config
     - run: npx eslint . --ext .ts,.js,.tsx
